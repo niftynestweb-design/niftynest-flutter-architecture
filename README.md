@@ -94,3 +94,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 Built with ❤️ by **Moaz Aamir** — Lead Engineer
+[GitHub](https://github.com/MoazAamir) | [LinkedIn](https://linkedin.com/in/moazaamir)

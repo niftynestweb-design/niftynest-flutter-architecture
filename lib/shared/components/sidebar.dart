@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_colors.dart';
@@ -65,8 +66,53 @@ class Sidebar extends ConsumerWidget {
               ],
             ),
           ),
+          _buildConnectSection(context, isCollapsed),
+          const SizedBox(height: AppDesign.spaceL),
           _buildToggleButton(ref, isCollapsed),
           const SizedBox(height: AppDesign.spaceL),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildConnectSection(BuildContext context, bool isCollapsed) {
+    if (isCollapsed) return const SizedBox.shrink();
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: AppDesign.spaceL),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'CONNECT',
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.bold,
+              color: AppColors.textSecondary,
+              letterSpacing: 1.2,
+            ),
+          ),
+          const SizedBox(height: AppDesign.spaceM),
+          _SocialLink(
+            icon: Icons.link_rounded,
+            label: 'LinkedIn',
+            url: 'https://linkedin.com/in/moazaamir',
+          ),
+          _SocialLink(
+            icon: Icons.code_rounded,
+            label: 'GitHub',
+            url: 'https://github.com/MoazAamir',
+          ),
+          _SocialLink(
+            icon: Icons.email_rounded,
+            label: 'Email',
+            url: 'mailto:moazaamir@niftynest.com',
+          ),
+          _SocialLink(
+            icon: Icons.camera_alt_rounded,
+            label: 'Instagram',
+            url: 'https://instagram.com/moazaamir',
+          ),
         ],
       ),
     );
@@ -185,6 +231,50 @@ class _SidebarItem extends StatelessWidget {
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class _SocialLink extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final String url;
+
+  const _SocialLink({
+    required this.icon,
+    required this.label,
+    required this.url,
+  });
+
+  Future<void> _launchUrl() async {
+    final Uri uri = Uri.parse(url);
+    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+      throw Exception('Could not launch $url');
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onPressed: _launchUrl,
+      borderRadius: BorderRadius.circular(AppDesign.radiusS),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: Row(
+          children: [
+            Icon(icon, size: 18, color: AppColors.textSecondary),
+            const SizedBox(width: AppDesign.spaceM),
+            Text(
+              label,
+              style: const TextStyle(
+                fontSize: 14,
+                color: AppColors.textSecondary,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ],
         ),
       ),
     );
