@@ -20,7 +20,13 @@ NiftyNest is built on a **Feature-First Architecture**, prioritizing modularity,
 
 | Desktop Dashboard | Mobile Responsive |
 | :---: | :---: |
-| ![Desktop Dashboard](https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80) | ![Mobile Dashboard](https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=300&q=80) |
+| ![Desktop Overview](assets/screenshots/dashboard_overview.png) | ![Mobile View](assets/screenshots/mobile_view_1.png) |
+
+### 🔍 Deep Dive
+
+| Analytics System | Operational Feed | Mobile Experience |
+| :---: | :---: | :---: |
+| ![Analytics](assets/screenshots/analytics_details.png) | ![Activity](assets/screenshots/activity_feed.png) | ![Mobile Menu](assets/screenshots/mobile_menu.png) |
 
 ## 📁 Feature-First Structure
 
